@@ -197,7 +197,7 @@ onBeforeUnmount(() => {
 
           <!-- 04 / Outline -->
           <div v-else-if="active === 3" class="slide-body agenda-slide">
-            <div class="section-head compact"><div><div class="slide-kicker"><span>03</span> محتويات العرض</div><h2>ست محطات<br><em>لفهم المنظومة.</em></h2></div><div class="duration-badge"><strong>15–20</strong><span>دقيقة</span><small>≈ دقيقة لكل شريحة</small></div></div>
+            <div class="section-head compact"><div><div class="slide-kicker"><span>03</span> محتويات العرض</div><h2>ست محطات<br><em>لفهم المنظومة.</em></h2></div></div>
             <div class="agenda-grid">
               <div><span>01</span><small>WHY</small><b>المشكلة والحل</b><p>لماذا بُني النظام؟</p></div>
               <div><span>02</span><small>GOALS</small><b>الأهداف والتقنيات</b><p>ما الذي نريد تحقيقه؟</p></div>
