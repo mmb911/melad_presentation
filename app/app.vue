@@ -311,14 +311,25 @@ onBeforeUnmount(() => {
           <!-- 13 / Flowchart -->
           <div v-else-if="active === 12" class="slide-body flowchart-slide">
             <div class="section-head compact"><div><div class="slide-kicker"><span>12</span> Flowchart</div><h2>كل قرار له<br><em>مسار آمن.</em></h2></div><p>يبدأ المسار بالهوية، ولا يصل إلى تشغيل المضخة إلا بعد نجاح جميع نقاط التحقق.</p></div>
-            <div class="flowchart">
-              <div class="flow-node start"><small>START</small><b>تسجيل الدخول + تمرير RFID</b></div><i class="flow-arrow"/>
-              <div class="flow-node decision"><small>CHECK 01</small><b>هل الحساب يطابق البطاقة؟</b></div>
-              <div class="flow-branch reject"><span>لا</span><b>رفض + PUMP OFF</b></div><div class="flow-branch pass"><span>نعم</span><b>استقبال الطلب</b></div>
-              <div class="flow-node decision second"><small>CHECK 02</small><b>هل الطلب والحصة صالحان؟</b></div>
-              <div class="flow-branch reject second-reject"><span>لا</span><b>رسالة خطأ واضحة</b></div><div class="flow-branch pass second-pass"><span>نعم</span><b>Relay ON</b></div>
-              <div class="flow-node process"><small>LOOP</small><b>عدّ نبضات التدفق ومقارنة الكمية</b></div><i class="flow-arrow lower"/>
-              <div class="flow-node end"><small>COMPLETE</small><b>إيقاف · تحديث · عرض النتيجة</b></div>
+            <div class="paper-flowchart">
+              <div class="paper-flow-top">
+                <div class="paper-node terminal"><small>START</small><b>البداية</b></div><i class="paper-arrow"/>
+                <div class="paper-node"><small>01 / IDENTIFY</small><b>إدخال بطاقة RFID على القارئ</b></div><i class="paper-arrow"/>
+                <div class="paper-node"><small>02 / READ</small><b>قراءة بيانات البطاقة والتحقق من صلاحيتها</b><em>الاسم · الرصيد · الحصة</em></div><i class="paper-arrow"/>
+                <div class="paper-node decision"><small>03 / VALIDATE</small><b>هل البطاقة صالحة؟</b></div>
+              </div>
+              <div class="paper-branches">
+                <div class="paper-reject"><span>NO</span><b>عرض رسالة خطأ</b><small>بطاقة غير صالحة · العودة للقارئ</small><i/></div>
+                <div class="paper-accept"><span>YES</span><b>متابعة عملية الصرف</b><i/></div>
+              </div>
+              <div class="paper-flow-process">
+                <div class="paper-node"><small>04 / DISPLAY</small><b>عرض بيانات المستخدم</b><em>الاسم · الرصيد · الحصة المتبقية</em></div><i class="paper-arrow"/>
+                <div class="paper-node"><small>05 / ACTUATE</small><b>إرسال إشارة إلى مضخة الوقود</b><em>تشغيل الريليه</em></div><i class="paper-arrow"/>
+                <div class="paper-node accent"><small>06 / MEASURE</small><b>حساب كمية الوقود ومراقبتها</b><em>حساس التدفق</em></div><i class="paper-arrow"/>
+                <div class="paper-node"><small>07 / UPDATE</small><b>تحديث بيانات المستخدم</b><em>خصم الكمية من الرصيد والحصة</em></div><i class="paper-arrow"/>
+                <div class="paper-node"><small>08 / SYNC</small><b>إرسال البيانات إلى Blynk</b><em>المراقبة عن بُعد</em></div><i class="paper-arrow"/>
+                <div class="paper-node terminal end"><small>END</small><b>النهاية</b></div>
+              </div>
             </div>
           </div>
 
